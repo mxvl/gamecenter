@@ -17,7 +17,10 @@ Window::~Window() {
 }
 
 WINDOW *Window::createNewWindow() {
-	return newwin(height, width, starty, startx);
+	WINDOW *localWindow = newwin(height, width, starty, startx);
+	box(localWindow, 0, 0);
+	
+	return localWindow;
 }
 
 WINDOW *Window::getWindow() {
@@ -26,4 +29,12 @@ WINDOW *Window::getWindow() {
 
 void Window::refresh() {
 	wrefresh(window);
+}
+
+int Window::getHeight() {
+	return height;
+}
+
+int Window::getWidth() {
+	return width;
 }

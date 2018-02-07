@@ -7,6 +7,8 @@ class Window {
 public:
 	Window();
 	virtual ~Window();
+	int getHeight();
+	int getWidth();
 
 protected:
 	WINDOW *getWindow();

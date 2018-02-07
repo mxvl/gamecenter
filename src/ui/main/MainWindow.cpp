@@ -30,6 +30,8 @@ void MainWindow::createMenu(WINDOW *localWindow) {
 	}
 	
 	menu = new_menu((ITEM **)menuItems);
-	set_menu_win(menu, getWindow());
+	set_menu_win(menu, localWindow);
+	set_menu_sub(menu, derwin(localWindow, 6, 30, (getHeight()/2 - 3), (getWidth()/2 - 15)));
+	set_menu_mark(menu, " * ");
 	post_menu(menu);
 }
