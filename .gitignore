@@ -34,5 +34,3 @@
 # Binaries & configs
 build/
 dist/
-nbproject/
-.dep.inc

@@ -3,17 +3,15 @@
 
 #include <ncurses.h>
 #include <menu.h>
-#include <vector>
-#include <string>
-#include "../template/Window.h"
+#include "../template/MenuWindow.h"
 
-class MainWindow : public Window {
+class MainWindow : public MenuWindow {
 public:
 	MainWindow();
 	virtual ~MainWindow();
 
 private:
-	void createMenu(WINDOW *localWindow);
+	void initMenu(WINDOW *localWindow);
 };
 
 #endif /* MAINWINDOW_H */
