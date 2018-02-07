@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <ncurses.h>
+#include <menu.h>
+#include <vector>
+#include <string>
 #include "../template/Window.h"
 
 class MainWindow : public Window {
