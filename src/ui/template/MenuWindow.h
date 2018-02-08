@@ -10,7 +10,7 @@ public:
 	virtual ~MenuWindow();
 	
 protected:
-	virtual MENU *createMenu();
+	MENU *createMenu(char *choices[], int nbChoices);
 	
 private:
 
