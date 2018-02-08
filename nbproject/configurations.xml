@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/geometry/Dimension.h</itemPath>
       <itemPath>src/ui/main/MainWindow.h</itemPath>
       <itemPath>src/ui/template/MenuWindow.h</itemPath>
       <itemPath>src/ui/template/Window.h</itemPath>
@@ -48,6 +49,8 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/main/MainWindow.cpp" ex="false" tool="1" flavor2="0">
@@ -83,6 +86,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/main/MainWindow.cpp" ex="false" tool="1" flavor2="0">
