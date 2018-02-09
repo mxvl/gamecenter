@@ -15,6 +15,9 @@ protected:
     void setMenu(MENU *menu, WINDOW *localWindow, const Dimension &dimension);
 
 private:
+    MENU *menu;
+    int menuLenght;
+    ITEM **items;
 
 };
 

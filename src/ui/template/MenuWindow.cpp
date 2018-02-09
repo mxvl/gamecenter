@@ -7,19 +7,23 @@ MenuWindow::MenuWindow()
 
 MenuWindow::~MenuWindow()
 {
+	for (int i=0; i<menuLenght-1; i++) {
+		free_item(items[i]);
+	}
+	free_menu(menu);
 }
 
 MENU *MenuWindow::createMenu(char *choices[], int nbChoices)
 {
-	ITEM **menuItems;
-
-	menuItems = (ITEM **) calloc(nbChoices, sizeof(ITEM *));
+	items = (ITEM **) calloc(nbChoices, sizeof(ITEM *));
 
 	for (int i = 0; i < nbChoices; i++) {
-		menuItems[i] = new_item(choices[i], choices[i]);
+		items[i] = new_item(choices[i], choices[i]);
 	}
 
-	return new_menu((ITEM **) menuItems);
+	menu = new_menu((ITEM **) items);
+	menuLenght = nbChoices;
+	return menu;
 }
 
 void MenuWindow::setMenu(MENU *menu, WINDOW *localWindow, const Dimension &dimension)
