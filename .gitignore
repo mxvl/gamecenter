@@ -31,6 +31,14 @@
 *.out
 *.app
 
-# Binaries & configs
+# netbeans
+nbproject/private/
+nbproject/Package-*
+nbproject/Makefile-*
 build/
+nbbuild/
 dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.dep.inc
