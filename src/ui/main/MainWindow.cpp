@@ -1,4 +1,6 @@
 #include "MainWindow.h"
+#include "../../logic/signalHandling/terminate.h"
+#include <cstring>
 
 MainWindow::MainWindow() {
 	WINDOW *localWindow = getWindow();
@@ -29,7 +31,17 @@ void MainWindow::initMenu(WINDOW *localWindow) {
 
 	post_menu(menu);
 }
-/*
-void  MainWindow::chooseOption(const char* choice) {
-	
-}*/
+
+void MainWindow::chooseOption(const char* choice) {
+	if (strcmp(choice, "Exit") == 0) {
+		delete this;
+		endGamecenter();
+	} else if (strcmp(choice, "Rubik's cube") == 0) {
+		
+	} else {
+		fprintf(stderr, "Usage : Invalid option selected\n");
+		// Log the error appropriately
+		delete this;
+		endGamecenter();
+	}
+}

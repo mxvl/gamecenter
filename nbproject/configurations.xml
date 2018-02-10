@@ -8,6 +8,7 @@
       <itemPath>src/ui/main/MainWindow.h</itemPath>
       <itemPath>src/ui/template/MenuWindow.h</itemPath>
       <itemPath>src/ui/template/Window.h</itemPath>
+      <itemPath>src/logic/signalHandling/terminate.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,6 +21,7 @@
       <itemPath>src/ui/template/MenuWindow.cpp</itemPath>
       <itemPath>src/ui/template/Window.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/logic/signalHandling/terminate.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -50,6 +52,16 @@
         </linkerTool>
       </compileType>
       <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/logic/signalHandling/terminate.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/logic/signalHandling/terminate.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -87,6 +99,16 @@
         </asmTool>
       </compileType>
       <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/logic/signalHandling/terminate.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/logic/signalHandling/terminate.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

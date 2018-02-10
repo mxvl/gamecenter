@@ -14,7 +14,7 @@ protected:
     MENU *createMenu(char *choices[], int nbChoices);
     void setMenu(MENU *menu, WINDOW *localWindow, const Dimension &dimension);
     void useMenu();
-    void chooseOption(const char *choice);
+    virtual void chooseOption(const char *choice) =0;
 
 private:
     MENU *menu;
