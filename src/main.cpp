@@ -15,11 +15,6 @@ int main(int argc, char** argv) {
 	refresh();
 
 	Window *currentWindow = new MainWindow;
-
-	do {
-		ch = getwchar();
-	} while (ch != 'q');
-
 	delete currentWindow;
 
 	endwin();

@@ -1,18 +1,17 @@
 #include "MainWindow.h"
 
-MainWindow::MainWindow()
-{
+MainWindow::MainWindow() {
 	WINDOW *localWindow = getWindow();
 	initMenu(localWindow);
 	this->refresh();
+
+	useMenu();
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
 }
 
-void MainWindow::initMenu(WINDOW *localWindow)
-{
+void MainWindow::initMenu(WINDOW *localWindow) {
 	MENU *menu;
 	ITEM *curItem;
 
@@ -30,3 +29,7 @@ void MainWindow::initMenu(WINDOW *localWindow)
 
 	post_menu(menu);
 }
+/*
+void  MainWindow::chooseOption(const char* choice) {
+	
+}*/
