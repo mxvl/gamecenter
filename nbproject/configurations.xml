@@ -9,6 +9,7 @@
       <itemPath>src/geometry/Dimension.h</itemPath>
       <itemPath>src/ui/main/MainWindow.h</itemPath>
       <itemPath>src/ui/template/MenuWindow.h</itemPath>
+      <itemPath>src/ui/rubik/RubikGame.h</itemPath>
       <itemPath>src/ui/rubik/RubikMenu.h</itemPath>
       <itemPath>src/ui/template/Window.h</itemPath>
       <itemPath>src/logic/signalHandling/terminate.h</itemPath>
@@ -23,6 +24,7 @@
       <itemPath>src/game/rubik/Cube.cpp</itemPath>
       <itemPath>src/ui/main/MainWindow.cpp</itemPath>
       <itemPath>src/ui/template/MenuWindow.cpp</itemPath>
+      <itemPath>src/ui/rubik/RubikGame.cpp</itemPath>
       <itemPath>src/ui/rubik/RubikMenu.cpp</itemPath>
       <itemPath>src/ui/template/Window.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -80,6 +82,10 @@
       </item>
       <item path="src/ui/main/MainWindow.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/ui/rubik/RubikGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ui/rubik/RubikMenu.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/rubik/RubikMenu.h" ex="false" tool="3" flavor2="0">
@@ -136,6 +142,10 @@
       <item path="src/ui/main/MainWindow.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/main/MainWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ui/rubik/RubikMenu.cpp" ex="false" tool="1" flavor2="0">
       </item>

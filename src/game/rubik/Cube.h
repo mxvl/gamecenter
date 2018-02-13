@@ -12,6 +12,7 @@ public:
 	bool move(const char move);
 	std::string move(std::string moves);
 	CubeRep *getCube() const;
+	bool isSolved() const;
 	
 private:
 	CubeRep *cube;
