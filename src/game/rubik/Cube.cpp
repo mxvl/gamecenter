@@ -31,41 +31,44 @@ bool Cube::move(const char move) {
 		moveTop(false);
 		validMove = true;
 		break;
+	case 'L':
+		moveLeft(true);
+		validMove = true;
+		break;
+		
+	case 'l':
+		moveLeft(false);
+		validMove = true;
+		break;
+	case 'F':
+		moveFront(true);
+		validMove = true;
+		break;
+		
+	case 'f':
+		moveFront(false);
+		validMove = true;
+		break;
+	case 'q':
+		validMove = true;
+		break;
+	default:
+		break;
 	}
 	
 	return validMove;
 }
 
 void Cube::moveTop(const bool clockwise) {
-	std::string newTop, frontTmp;
+	std::string frontTmp;
 	
 	if (clockwise) {
-		newTop = cube->top[6];
-		newTop += cube->top[3];
-		newTop += cube->top[0];
-		newTop += cube->top[7];
-		newTop += cube->top[4];
-		newTop += cube->top[1];
-		newTop += cube->top[8];
-		newTop += cube->top[5];
-		newTop += cube->top[2];
-		
 		frontTmp = cube->front.substr(0, 3);
 		cube->front.replace(0, 3, cube->right.substr(0, 3));
 		cube->right.replace(0, 3, cube->back.substr(0, 3));
 		cube->back.replace(0, 3, cube->left.substr(0, 3));
 		cube->left.replace(0, 3, frontTmp);
 	} else {
-		newTop = cube->top[2];
-		newTop += cube->top[5];
-		newTop += cube->top[8];
-		newTop += cube->top[1];
-		newTop += cube->top[4];
-		newTop += cube->top[7];
-		newTop += cube->top[0];
-		newTop += cube->top[3];
-		newTop += cube->top[6];
-		
 		frontTmp = cube->front.substr(0, 3);
 		cube->front.replace(0, 3, cube->left.substr(0, 3));
 		cube->left.replace(0, 3, cube->back.substr(0, 3));
@@ -73,7 +76,107 @@ void Cube::moveTop(const bool clockwise) {
 		cube->right.replace(0, 3, frontTmp);
 	}
 	
-	cube->top = newTop;
+	cube->top = turnFace(cube->top, clockwise);
+}
+
+void Cube::moveLeft(const bool clockwise) {
+	std::string topTmp;
+	
+	if (clockwise) {
+		topTmp = cube->top;
+		cube->top[0] = cube->back[8];
+		cube->top[3] = cube->back[5];
+		cube->top[6] = cube->back[2];
+		cube->back[8] = cube->bottom[0];
+		cube->back[5] = cube->bottom[3];
+		cube->back[2] = cube->bottom[6];
+		cube->bottom[0] = cube->front[0];
+		cube->bottom[3] = cube->front[3];
+		cube->bottom[6] = cube->front[6];
+		cube->front[0] = topTmp[0];
+		cube->front[3] = topTmp[3];
+		cube->front[6] = topTmp[6];
+	} else {
+		topTmp = cube->top;
+		cube->top[0] = cube->front[0];
+		cube->top[3] = cube->front[3];
+		cube->top[6] = cube->front[6];
+		cube->front[0] = cube->bottom[0];
+		cube->front[3] = cube->bottom[3];
+		cube->front[6] = cube->bottom[6];
+		cube->bottom[0] = cube->back[8];
+		cube->bottom[3] = cube->back[5];
+		cube->bottom[6] = cube->back[2];
+		cube->back[8] = topTmp[0];
+		cube->back[5] = topTmp[3];
+		cube->back[2] = topTmp[6];
+	}
+	
+	cube->left = turnFace(cube->left, clockwise);
+}
+
+void Cube::moveFront(const bool clockwise) {
+	std::string topTmp;
+	
+	if (clockwise) {
+		topTmp = cube->top.substr(6, 3);
+		cube->top[6] = cube->left[8];
+		cube->top[7] = cube->left[5];
+		cube->top[8] = cube->left[2];
+		cube->left[8] = cube->bottom[2];
+		cube->left[5] = cube->bottom[1];
+		cube->left[2] = cube->bottom[0];
+		cube->bottom[2] = cube->right[0];
+		cube->bottom[1] = cube->right[3];
+		cube->bottom[0] = cube->right[6];
+		cube->right[0] = topTmp[0];
+		cube->right[3] = topTmp[1];
+		cube->right[6] = topTmp[2];
+	} else {
+		topTmp = cube->top.substr(6, 3);
+		cube->top[6] = cube->right[0];
+		cube->top[7] = cube->right[3];
+		cube->top[8] = cube->right[6];
+		cube->right[0] = cube->bottom[2];
+		cube->right[3] = cube->bottom[1];
+		cube->right[6] = cube->bottom[0];
+		cube->bottom[2] = cube->left[8];
+		cube->bottom[1] = cube->left[5];
+		cube->bottom[0] = cube->left[2];
+		cube->left[8] = topTmp[0];
+		cube->left[5] = topTmp[1];
+		cube->left[2] = topTmp[2];
+	}
+	
+	cube->front = turnFace(cube->front, clockwise);
+}
+
+std::string Cube::turnFace(const std::string &face, bool clockwise) const {
+	std::string newFace;
+	
+	if (clockwise) {
+		newFace = face[6];
+		newFace += face[3];
+		newFace += face[0];
+		newFace += face[7];
+		newFace += face[4];
+		newFace += face[1];
+		newFace += face[8];
+		newFace += face[5];
+		newFace += face[2];
+	} else {
+		newFace = face[2];
+		newFace += face[5];
+		newFace += face[8];
+		newFace += face[1];
+		newFace += face[4];
+		newFace += face[7];
+		newFace += face[0];
+		newFace += face[3];
+		newFace += face[6];
+	}
+	
+	return newFace;
 }
 
 CubeRep *Cube::getCube() const {

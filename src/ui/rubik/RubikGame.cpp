@@ -13,13 +13,14 @@ RubikGame::~RubikGame() {
 
 void RubikGame::play() {
 	char move;
+	bool validMove;
 	WINDOW *localWindow = getWindow();
 	
 	do {
 		move = wgetch(localWindow);
-		cube->move(move);
+		validMove = cube->move(move);
 		drawCube();
-	} while(!cube->isSolved());
+	} while(!validMove || !(move == 'q' || cube->isSolved()));
 	
 	wgetch(localWindow);
 	delete this;
@@ -33,11 +34,11 @@ bool RubikGame::drawCube() {
 	int localStartx = getWidth()/2 -6;
 	
 	// Draw top
-	wmove(localWindow, localStarty, localStartx+4);
+	wmove(localWindow, localStarty, localStartx+3);
 	drawCells(localWindow, cubeRep->top.substr(0, 3));
-	wmove(localWindow, localStarty+1, localStartx+4);
+	wmove(localWindow, localStarty+1, localStartx+3);
 	drawCells(localWindow, cubeRep->top.substr(3, 3));
-	wmove(localWindow, localStarty+2, localStartx+4);
+	wmove(localWindow, localStarty+2, localStartx+3);
 	drawCells(localWindow, cubeRep->top.substr(6, 3));
 	
 	// Draw left, front, right, back
@@ -58,11 +59,11 @@ bool RubikGame::drawCube() {
 	drawCells(localWindow, cubeRep->back.substr(6, 3));
 	
 	// Draw bottom
-	wmove(localWindow, localStarty+6, localStartx+4);
+	wmove(localWindow, localStarty+6, localStartx+3);
 	drawCells(localWindow, cubeRep->bottom.substr(0, 3));
-	wmove(localWindow, localStarty+7, localStartx+4);
+	wmove(localWindow, localStarty+7, localStartx+3);
 	drawCells(localWindow, cubeRep->bottom.substr(3, 3));
-	wmove(localWindow, localStarty+8, localStartx+4);
+	wmove(localWindow, localStarty+8, localStartx+3);
 	drawCells(localWindow, cubeRep->bottom.substr(6, 3));
 	
 	this->refresh();
