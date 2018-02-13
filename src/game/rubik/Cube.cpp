@@ -26,7 +26,6 @@ bool Cube::move(const char move) {
 		moveTop(true);
 		validMove = true;
 		break;
-		
 	case 'u':
 		moveTop(false);
 		validMove = true;
@@ -35,7 +34,6 @@ bool Cube::move(const char move) {
 		moveLeft(true);
 		validMove = true;
 		break;
-		
 	case 'l':
 		moveLeft(false);
 		validMove = true;
@@ -44,9 +42,32 @@ bool Cube::move(const char move) {
 		moveFront(true);
 		validMove = true;
 		break;
-		
 	case 'f':
 		moveFront(false);
+		validMove = true;
+		break;
+	case 'R':
+		moveRight(true);
+		validMove = true;
+		break;
+	case 'r':
+		moveRight(false);
+		validMove = true;
+		break;
+	case 'B':
+		moveBack(true);
+		validMove = true;
+		break;
+	case 'b':
+		moveBack(false);
+		validMove = true;
+		break;
+	case 'D':
+		moveBottom(true);
+		validMove = true;
+		break;
+	case 'd':
+		moveBottom(false);
 		validMove = true;
 		break;
 	case 'q':
@@ -60,16 +81,14 @@ bool Cube::move(const char move) {
 }
 
 void Cube::moveTop(const bool clockwise) {
-	std::string frontTmp;
+	std::string frontTmp = cube->front.substr(0, 3);
 	
 	if (clockwise) {
-		frontTmp = cube->front.substr(0, 3);
 		cube->front.replace(0, 3, cube->right.substr(0, 3));
 		cube->right.replace(0, 3, cube->back.substr(0, 3));
 		cube->back.replace(0, 3, cube->left.substr(0, 3));
 		cube->left.replace(0, 3, frontTmp);
 	} else {
-		frontTmp = cube->front.substr(0, 3);
 		cube->front.replace(0, 3, cube->left.substr(0, 3));
 		cube->left.replace(0, 3, cube->back.substr(0, 3));
 		cube->back.replace(0, 3, cube->right.substr(0, 3));
@@ -80,10 +99,9 @@ void Cube::moveTop(const bool clockwise) {
 }
 
 void Cube::moveLeft(const bool clockwise) {
-	std::string topTmp;
+	std::string topTmp = cube->top;
 	
 	if (clockwise) {
-		topTmp = cube->top;
 		cube->top[0] = cube->back[8];
 		cube->top[3] = cube->back[5];
 		cube->top[6] = cube->back[2];
@@ -97,7 +115,6 @@ void Cube::moveLeft(const bool clockwise) {
 		cube->front[3] = topTmp[3];
 		cube->front[6] = topTmp[6];
 	} else {
-		topTmp = cube->top;
 		cube->top[0] = cube->front[0];
 		cube->top[3] = cube->front[3];
 		cube->top[6] = cube->front[6];
@@ -116,10 +133,9 @@ void Cube::moveLeft(const bool clockwise) {
 }
 
 void Cube::moveFront(const bool clockwise) {
-	std::string topTmp;
+	std::string topTmp = cube->top.substr(6, 3);
 	
 	if (clockwise) {
-		topTmp = cube->top.substr(6, 3);
 		cube->top[6] = cube->left[8];
 		cube->top[7] = cube->left[5];
 		cube->top[8] = cube->left[2];
@@ -133,7 +149,6 @@ void Cube::moveFront(const bool clockwise) {
 		cube->right[3] = topTmp[1];
 		cube->right[6] = topTmp[2];
 	} else {
-		topTmp = cube->top.substr(6, 3);
 		cube->top[6] = cube->right[0];
 		cube->top[7] = cube->right[3];
 		cube->top[8] = cube->right[6];
@@ -149,6 +164,92 @@ void Cube::moveFront(const bool clockwise) {
 	}
 	
 	cube->front = turnFace(cube->front, clockwise);
+}
+
+void Cube::moveRight(const bool clockwise) {
+	std::string frontTmp = cube->front;
+	
+	if (clockwise) {
+		cube->front[2] = cube->bottom[2];
+		cube->front[5] = cube->bottom[5];
+		cube->front[8] = cube->bottom[8];
+		cube->bottom[2] = cube->back[6];
+		cube->bottom[5] = cube->back[3];
+		cube->bottom[8] = cube->back[0];
+		cube->back[6] = cube->top[2];
+		cube->back[3] = cube->top[5];
+		cube->back[0] = cube->top[8];
+		cube->top[2] = frontTmp[2];
+		cube->top[5] = frontTmp[5];
+		cube->top[8] = frontTmp[8];
+	} else {
+		cube->front[2] = cube->top[2];
+		cube->front[5] = cube->top[5];
+		cube->front[8] = cube->top[8];
+		cube->top[2] = cube->back[6];
+		cube->top[5] = cube->back[3];
+		cube->top[8] = cube->back[0];
+		cube->back[6] = cube->bottom[2];
+		cube->back[3] = cube->bottom[5];
+		cube->back[0] = cube->bottom[8];
+		cube->bottom[2] = frontTmp[2];
+		cube->bottom[5] = frontTmp[5];
+		cube->bottom[8] = frontTmp[8];
+	}
+	
+	cube->right = turnFace(cube->right, clockwise);
+}
+
+void Cube::moveBack(const bool clockwise) {
+	std::string topTmp = cube->top.substr(0, 3);
+	
+	if (clockwise) {
+		cube->top[0] = cube->right[2];
+		cube->top[1] = cube->right[5];
+		cube->top[2] = cube->right[8];
+		cube->right[2] = cube->bottom[8];
+		cube->right[5] = cube->bottom[7];
+		cube->right[8] = cube->bottom[6];
+		cube->bottom[8] = cube->left[6];
+		cube->bottom[7] = cube->left[3];
+		cube->bottom[6] = cube->left[0];
+		cube->left[6] = topTmp[0];
+		cube->left[3] = topTmp[1];
+		cube->left[0] = topTmp[2];
+	} else {
+		cube->top[0] = cube->left[6];
+		cube->top[1] = cube->left[3];
+		cube->top[2] = cube->left[0];
+		cube->left[6] = cube->bottom[6];
+		cube->left[3] = cube->bottom[7];
+		cube->left[0] = cube->bottom[8];
+		cube->bottom[6] = cube->right[8];
+		cube->bottom[7] = cube->right[5];
+		cube->bottom[8] = cube->right[2];
+		cube->right[8] = topTmp[2];
+		cube->right[5] = topTmp[1];
+		cube->right[2] = topTmp[0];
+	}
+	
+	cube->back = turnFace(cube->back, clockwise);
+}
+
+void Cube::moveBottom(const bool clockwise) {
+	std::string frontTmp = cube->front.substr(6, 3);
+	
+	if (clockwise) {
+		cube->front.replace(6, 3, cube->left.substr(6, 3));
+		cube->left.replace(6, 3, cube->back.substr(6, 3));
+		cube->back.replace(6, 3, cube->right.substr(6, 3));
+		cube->right.replace(6, 3, frontTmp);
+	} else {
+		cube->front.replace(6, 3, cube->right.substr(6, 3));
+		cube->right.replace(6, 3, cube->back.substr(6, 3));
+		cube->back.replace(6, 3, cube->left.substr(6, 3));
+		cube->left.replace(6, 3, frontTmp);
+	}
+	
+	cube->bottom = turnFace(cube->bottom, clockwise);
 }
 
 std::string Cube::turnFace(const std::string &face, bool clockwise) const {
