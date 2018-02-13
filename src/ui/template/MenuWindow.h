@@ -15,6 +15,7 @@ protected:
     void setMenu(MENU *menu, WINDOW *localWindow, const Dimension &dimension);
     void useMenu();
     virtual void chooseOption(const char *choice) =0;
+    void initMenu(WINDOW *localWindow, char *choices[]);
 
 private:
     MENU *menu;

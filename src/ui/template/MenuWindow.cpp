@@ -53,3 +53,17 @@ void MenuWindow::useMenu() {
 		wrefresh(localWindow);
 	}
 }
+
+void MenuWindow::initMenu(WINDOW *localWindow, char *choices[]) {
+	MENU *menu;
+
+	menu = createMenu(choices, 3);
+
+	Dimension dimension;
+	dimension.dy = 6;
+	dimension.dx = 30;
+	setMenu(menu, localWindow, dimension);
+
+	post_menu(menu);
+	useMenu();
+}

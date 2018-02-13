@@ -4,9 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/game/rubik/Cube.h</itemPath>
+      <itemPath>src/game/rubik/CubeRep.h</itemPath>
       <itemPath>src/geometry/Dimension.h</itemPath>
       <itemPath>src/ui/main/MainWindow.h</itemPath>
       <itemPath>src/ui/template/MenuWindow.h</itemPath>
+      <itemPath>src/ui/rubik/RubikGame.h</itemPath>
+      <itemPath>src/ui/rubik/RubikMenu.h</itemPath>
       <itemPath>src/ui/template/Window.h</itemPath>
       <itemPath>src/logic/signalHandling/terminate.h</itemPath>
     </logicalFolder>
@@ -17,8 +21,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/game/rubik/Cube.cpp</itemPath>
       <itemPath>src/ui/main/MainWindow.cpp</itemPath>
       <itemPath>src/ui/template/MenuWindow.cpp</itemPath>
+      <itemPath>src/ui/rubik/RubikGame.cpp</itemPath>
+      <itemPath>src/ui/rubik/RubikMenu.cpp</itemPath>
       <itemPath>src/ui/template/Window.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
       <itemPath>src/logic/signalHandling/terminate.cpp</itemPath>
@@ -51,6 +58,12 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="src/game/rubik/Cube.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/rubik/Cube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/rubik/CubeRep.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/logic/signalHandling/terminate.cpp"
@@ -68,6 +81,14 @@
       <item path="src/ui/main/MainWindow.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/main/MainWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikMenu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikMenu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ui/template/MenuWindow.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -98,6 +119,12 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/game/rubik/Cube.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/game/rubik/Cube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/game/rubik/CubeRep.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/geometry/Dimension.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/logic/signalHandling/terminate.cpp"
@@ -115,6 +142,14 @@
       <item path="src/ui/main/MainWindow.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ui/main/MainWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikMenu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ui/rubik/RubikMenu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ui/template/MenuWindow.cpp" ex="false" tool="1" flavor2="0">
       </item>

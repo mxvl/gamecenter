@@ -14,7 +14,6 @@ protected:
 	virtual void chooseOption(const char *choice);
 
 private:
-	void initMenu(WINDOW *localWindow);
 };
 
 #endif /* MAINWINDOW_H */
