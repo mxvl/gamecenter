@@ -6,7 +6,7 @@
 
 class RubikGame : public Window {
 public:
-	RubikGame();
+	RubikGame(Window *win);
 	virtual ~RubikGame();
 	
 private:

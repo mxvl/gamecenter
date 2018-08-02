@@ -5,7 +5,7 @@
 #include <cstring>
 #include "../../game/rubik/Cube.h"
 
-RubikMenu::RubikMenu() {
+RubikMenu::RubikMenu(Window *win) : MenuWindow(win) {
 	char *choices[] = {
 		(char *) "Play",
 		(char *) "Back",
@@ -21,15 +21,12 @@ RubikMenu::~RubikMenu() {
 
 void RubikMenu::chooseOption(const char *choice) {
 	if (strcmp(choice, "Back") == 0) {
-		delete this;
-		new MainWindow;
+		new MainWindow(this);
 	} else if (strcmp(choice, "Play") == 0) {
-		delete this;
-		new RubikGame;
+		new RubikGame(this);
 	} else {
 		fprintf(stderr, "Usage : Invalid option selected\n");
 		//TODO: Log the error appropriately
-		delete this;
-		endGamecenter();
+		endGamecenter(this);
 	}
 }

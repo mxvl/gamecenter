@@ -7,7 +7,7 @@
 
 class MainWindow : public MenuWindow {
 public:
-	MainWindow();
+	MainWindow(Window *win);
 	virtual ~MainWindow();
 
 protected:

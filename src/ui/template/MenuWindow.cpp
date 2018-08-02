@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <cstring>
 
-MenuWindow::MenuWindow() {
+MenuWindow::MenuWindow(Window *win) : Window(win) {
 }
 
 MenuWindow::~MenuWindow() {

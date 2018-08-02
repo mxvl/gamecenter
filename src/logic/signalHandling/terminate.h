@@ -1,6 +1,8 @@
 #ifndef TERMINATE_H
 #define TERMINATE_H
 
-void endGamecenter();
+#include "../../ui/template/Window.h"
+
+void endGamecenter(Window *win);
 
 #endif /* TERMINATE_H */

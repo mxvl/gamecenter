@@ -5,7 +5,7 @@
 
 class RubikMenu : public MenuWindow {
 public:
-	RubikMenu();
+	RubikMenu(Window *win);
 	virtual ~RubikMenu();
 
 protected:

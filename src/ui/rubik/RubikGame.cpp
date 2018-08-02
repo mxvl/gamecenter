@@ -2,7 +2,7 @@
 #include "RubikMenu.h"
 #include <string>
 
-RubikGame::RubikGame() {
+RubikGame::RubikGame(Window *win) : Window(win) {
 	cube = new Cube;
 	drawCube();
 	play();
@@ -23,8 +23,7 @@ void RubikGame::play() {
 	} while(!validMove || !(move == 'q' || cube->isSolved()));
 	
 	wgetch(localWindow);
-	delete this;
-	new RubikMenu;
+	new RubikMenu(this);
 }
 
 bool RubikGame::drawCube() {
@@ -67,11 +66,15 @@ bool RubikGame::drawCube() {
 	drawCells(localWindow, cubeRep->bottom.substr(6, 3));
 	
 	this->refresh();
+
+	return true;
 }
 
 bool RubikGame::drawCells(WINDOW* localWindow, std::string cells) {
 	for (int i=0; i<3; i++) {
 		waddch(localWindow, cells[i]);
 	}
+
+	return true;
 }
 

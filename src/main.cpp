@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 	curs_set(0);
 	refresh();
 
-	Window *currentWindow = new MainWindow;
+	Window *currentWindow = new MainWindow((Window *)NULL);
 	delete currentWindow;
 
 	endwin();

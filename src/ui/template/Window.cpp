@@ -1,12 +1,13 @@
 #include "Window.h"
 
-Window::Window() {
+Window::Window(Window *win) {
 	height = LINES;
 	width = COLS;
 	starty = (LINES - height) / 2;
 	startx = (COLS - width) / 2;
 
 	window = createNewWindow();
+	delete win;
 	this->refresh();
 }
 

@@ -2,7 +2,8 @@
 #include <ncurses.h>
 #include <stdlib.h>
 
-void endGamecenter() {
+void endGamecenter(Window *win) {
+	delete win;
 	endwin();
 	exit(0);
 }
