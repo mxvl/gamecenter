@@ -1,0 +1,3 @@
+// the configured options and settings for gamecenter
+#define gamecenter_VERSION_MAJOR @gamecenter_VERSION_MAJOR@
+#define gamecenter_VERSION_MINOR @gamecenter_VERSION_MINOR@
