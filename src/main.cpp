@@ -14,8 +14,13 @@ int main(int argc, char** argv) {
 	curs_set(0);
 	refresh();
 
-	new MainWindow((Window *)NULL);
+	if (has_colors() != FALSE) {
+		start_color();
+		new MainWindow((Window *)NULL);
+	}
 
 	endwin();
+	std::cout << "Your terminal does not support color.\n";
+
 	return 0;
 }
