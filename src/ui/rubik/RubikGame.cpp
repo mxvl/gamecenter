@@ -20,15 +20,17 @@ RubikGame::RubikGame(Window *win) : Window(win) {
 	init_pair(6, 0, COLOR_MAGENTA);
 	orange = 6;
 
+	keypad(getWindow(), TRUE);
 	drawCube();
 	play();
 }
 
 RubikGame::~RubikGame() {
+	keypad(getWindow(), FALSE);
 }
 
 void RubikGame::play() {
-	char move;
+	int move;
 	bool validMove;
 	WINDOW *localWindow = getWindow();
 	
@@ -36,7 +38,7 @@ void RubikGame::play() {
 		move = wgetch(localWindow);
 		validMove = cube->move(move);
 		drawCube();
-	} while(!validMove || !(move == 'q' || cube->isSolved()));
+	} while(!validMove || !(move == 'z' || cube->isSolved()));
 	
 	wgetch(localWindow);
 	new RubikMenu(this);

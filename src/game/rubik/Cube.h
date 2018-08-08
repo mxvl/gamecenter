@@ -3,13 +3,14 @@
 
 #include <string>
 #include "CubeRep.h"
+#include <ncurses.h>
 
 class Cube {
 public:
 	Cube();
 	Cube(const Cube& orig);
 	virtual ~Cube();
-	bool move(const char move);
+	bool move(const int move);
 	std::string move(std::string moves);
 	CubeRep *getCube() const;
 	bool isSolved() const;

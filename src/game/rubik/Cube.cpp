@@ -18,59 +18,59 @@ Cube::~Cube() {
 	delete cube;
 }
 
-bool Cube::move(const char move) {
+bool Cube::move(const int move) {
 	bool validMove = false;
 	
 	switch(move) {
-	case 'U':
+	case 'w':
 		moveTop(true);
 		validMove = true;
 		break;
-	case 'u':
+	case 'W':
 		moveTop(false);
 		validMove = true;
 		break;
-	case 'L':
+	case 'a':
 		moveLeft(true);
 		validMove = true;
 		break;
-	case 'l':
+	case 'A':
 		moveLeft(false);
 		validMove = true;
 		break;
-	case 'F':
+	case 'e':
 		moveFront(true);
 		validMove = true;
 		break;
-	case 'f':
+	case 'E':
 		moveFront(false);
 		validMove = true;
 		break;
-	case 'R':
+	case 'd':
 		moveRight(true);
 		validMove = true;
 		break;
-	case 'r':
+	case 'D':
 		moveRight(false);
 		validMove = true;
 		break;
-	case 'B':
+	case 'q':
 		moveBack(true);
 		validMove = true;
 		break;
-	case 'b':
+	case 'Q':
 		moveBack(false);
 		validMove = true;
 		break;
-	case 'D':
+	case 's':
 		moveBottom(true);
 		validMove = true;
 		break;
-	case 'd':
+	case 'S':
 		moveBottom(false);
 		validMove = true;
 		break;
-	case 'q':
+	case 'z':
 		validMove = true;
 		break;
 	default:
