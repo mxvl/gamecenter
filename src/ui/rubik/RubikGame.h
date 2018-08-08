@@ -12,11 +12,13 @@ public:
 private:
 	short scaleX, scaleY;
 	short red, yellow, green, orange, blue, white;
+	bool help;
 	Cube *cube;
 	bool drawCube();
 	bool drawCells(WINDOW *localWindow, const std::string cells, const int y, const int x) const;
 	bool drawCell(WINDOW* localWindow, const short pair, const int y, const int x) const;
 	void play();
+	void printHelp(WINDOW* localWindow);
 };
 
 #endif /* RUBIKGAME_H */
